@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,109 +6,167 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      /* .line {
-        text-decoration: line-through;
-      } */
-
-      .man{
-        background-color: black;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        position: relative;
+      table,
+      th,
+      td {
+        border: 1px solid rgb(255, 255, 255);
+        color: white;
       }
-      .eye1{
-        position: absolute;
-        top: 10px;
-        left: 15px;
-        width: 5px;
-        height: 5px;
-        border-radius: 50%;
+      th,
+      td {
+        width: 100px;
+      }
+      p {
+        color: red;
+        font-weight: bold;
+        opacity: 0;
+        text-decoration: underline;
         background-color: white;
+        max-width: 500px;
+        border-radius: 5px;
       }
-      .eye2{
-        position: absolute;
-        top: 10px;
-        right: 15px;
-        width: 5px;
-        border-radius: 50%;
-        height: 5px;
+      body {
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(45deg, red, blue);
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .form {
+        background-color: transparent;
+        border: 1px solid gray;
+        border-radius: 15px;
+        width: 400px;
+        max-height: 500px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        margin: auto;
+      }
+      input {
+        width: 70%;
+        height: 40px;
+        border-radius: 15px;
+        background-color: transparent;
+        color: white;
+        font-size: 15px;
+      }
+      #submit {
+        width: 30%;
+        margin-top: 10px;
         background-color: white;
+        color: black;
       }
+      #table {
+        margin: auto;
+        display: none;
+      }
+      
     </style>
   </head>
-  <body>
-     <form>
-      <input type="text" id="text" />
+  <body class="body">
+    <div class="form">
+      <label for="">Username:</label><br />
+      <input type="text" id="inputusername" /><br />
+      <label for="">Email:</label><br />
+      <input type="text" id="email" /><br />
+      <label for="">Password:</label><br />
+      <input type="password" id="password" /><br />
+      <label for="">Confirm Password:</label><br />
+      <input type="password" id="cpassword" /><br />
       <input type="submit" id="submit" />
-    </form> -->
-    <!-- <div class="container">
-      <button id="Add">add</button>
     </div>
-    <script> -->
-    <!-- //   let input = document.getElementById("text");
-    //   let button = document.getElementById("submit");
-    //   let div = document.getElementById("container");
-    //   button.addEventListener("click", (event) => {
-    //     event.preventDefault();
-    //     let inputValue = input.value;
-    //     let div2 = document.createElement("div");
-    //     let div3 = document.createElement("div");
-    //     let div4 = document.createElement("div");
-    //     let p = document.createElement("p");
-    //     let h1 = document.createElement("h1");
-    //     let deleteIcon = document.createElement("button");
-    //     let editIcon = document.createElement("button");
-    //     let editinput = document.createElement("input");
-    //     let editinput2 = document.createElement("input");
-    //     if (input.value === "") {
-    //       alert("input bos ola bilmez");
-    //       return -1;
-    //     } else {
-    //       p.textContent = inputValue;
-    //     }
-    //     h1.textContent = "ilkin ehmedov";
-    //     deleteIcon.textContent = "x";
-    //     editIcon.textContent = "edit";
-    //     div3.append(h1);
-    //     div4.append(deleteIcon, editIcon);
-    //     div.append(p, div2);
-    //     div2.append(div3, div4);
-    //     input.value = "";
-    //     deleteIcon.addEventListener("click", () => {
-    //       div2.remove(div2.children);
-    //     });
-    //     p.addEventListener("click", () => {
-    //       p.classList.add("line");
-    //     });
-    //     editIcon.addEventListener("click", (event) => {
-    //       div4.append(editinput);
-    //       div4.append(editinput2);
-    //       editinput.value = h1.textContent;
-    //       editinput.addEventListener("change", (event) => {
-    //         h1.textContent = editinput.value;
-    //       });
-    //       editinput2.value = p.textContent;
-    //       editinput2.addEventListener("change", (event) => {
-    //         p.textContent = editinput2.value;
-    //       });
-    //     });
-    //   });
+    <table id="table">
+      <thead>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Confirm Password</th>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <script>
+      let username = document.getElementById("inputusername");
+      let email = document.getElementById("email");
+      let password = document.getElementById("password");
+      let cpassword = document.getElementById("cpassword");
+      let submit = document.getElementById("submit");
+      let tbody = document.getElementById("tbody");
+      let body = document.querySelector(".body");
+      let p = document.createElement("p");
+      let form = document.querySelector(".form");
+      let table = document.querySelector("#table");
+      let viewdata = document.createElement('button')
+      let hidedata = document.createElement('button')
+      viewdata.textContent='View Data'
+      viewdata.style.display = 'none'
+      hidedata.textContent='Hide Data'
+      hidedata.style.display = 'none'
+      form.append(viewdata)
+      form.append(hidedata)
+      viewdata.addEventListener('click',(event)=>{
+        event.preventDefault()
+        table.style.display = 'block'
+        hidedata.style.display = 'block'
+      })
+      hidedata.addEventListener('click',(event)=>{
+        event.preventDefault()
+        table.style.display = 'none'
+      })
 
-    //   let button = document.getElementById('Add')
-    //   button.addEventListener('click',()=>{
-    //       let head = document.createElement('div')
-    //       let eye1 = document.createElement('div')
-    //       let eye2 = document.createElement('div')
-
-    //       eye1.classList.add('eye1')
-    //       eye2.classList.add('eye2')
-
-    //       head.append(eye1,eye2)
-    //       container.append(head)
-
-    //       head.classList.add('man')
-    //   }) -->
-    <!-- </script>
+      body.append(p);
+      submit.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (
+          username.value === "" ||
+          email.value === "" ||
+          password.value === "" ||
+          cpassword.value === ""
+        ) {
+          username.value = "";
+          email.value = "";
+          password.value = "";
+          cpassword.value = "";
+          p.textContent = "input must not be empty!!!";
+          p.style.opacity = "1";
+          return -1;
+        } else if (
+          password.value === cpassword.value &&
+          password.value.length >= 8
+        ) {
+          viewdata.style.display='block'
+          let tr = document.createElement("tr");
+          let td1 = document.createElement("td");
+          let td2 = document.createElement("td");
+          let td3 = document.createElement("td");
+          let td4 = document.createElement("td");
+          td1.textContent = username.value.trim();
+          td2.textContent = email.value.trim();
+          td3.textContent = password.value.trim();
+          td4.textContent = cpassword.value.trim();
+          tr.append(td1, td2, td3, td4);
+          tbody.append(tr);
+          username.value = "";
+          email.value = "";
+          password.value = "";
+          cpassword.value = "";
+        } else {
+          p.textContent =
+            "Password and Confirm Pasword isn't same or length of password is not more than 8!!!";
+          p.style.opacity = "1";
+          username.value = "";
+          email.value = "";
+          password.value = "";
+          cpassword.value = "";
+          return -1;
+        }
+      });
+    </script>
   </body>
-</html> --> -->
+</html>
