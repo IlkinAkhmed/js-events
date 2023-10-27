@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="btnDiv">
+      <button id="addBtn">Add Film</button>
+    </div>
+    <div id="form">
+      <label for="">Image link</label><br />
+      <input
+        type="text"
+        id="imageLink"
+        placeholder="Enter the image link..."
+        class="input"
+      /><br />
+      <label for="">Film name</label><br />
+      <input
+        type="text"
+        id="filmName"
+        placeholder="Enter the name of film..."
+        class="input"
+      /><br />
+      <label for="">Film category</label><br />
+      <input
+        type="text"
+        name=""
+        id="filmcategory"
+        placeholder="Enter the film category..."
+        class="input"
+      /><br />
+      <label for="">Film director</label><br />
+      <input
+        type="text"
+        id="filmdirector"
+        placeholder="Enter the film director..."
+        class="input"
+      /><br />
+      <label for="">Film imdb</label><br />
+      <input
+        type="number"
+        id="filmimdb"
+        placeholder="Enter the film imdb..."
+        class="input"
+      /><br />
+      <button id="submit" class="input"></button>
+    </div>
+    <div id="search">
+      <input type="text" class='srcinp'/>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <table id="table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Film name</th>
+          <th>Film category</th>
+          <th>Film director</th>
+          <th>Film imdb</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <script src="./script.js"></script>
+  </body>
+</html>
